@@ -43,7 +43,7 @@ async fn subscribe_return_a_200_for_valid_form_data() {
 
     let client = reqwest::Client::new();
 
-    let body = "name=test%20test&email=test%domain.com";
+    let body = "name=le%20guin&email=ursula_le_guin%40gmail.com";
     let response = client
         .post(format!("{}/subscriptions", &app_address))
         .header("Content-Type", "application/x-www-form-urlencoded")
@@ -59,8 +59,8 @@ async fn subscribe_return_a_200_for_valid_form_data() {
         .await
         .expect("Failed to fetch saved subscription.");
 
-    assert_eq!(saved.email, "test@domain.com");
-    assert_eq!(saved.name, "test test");
+    assert_eq!(saved.email, "ursula_le_guin@gmail.com");
+    assert_eq!(saved.name, "le guin");
 }
 
 #[tokio::test]
@@ -69,8 +69,8 @@ async fn subscribe_return_a_400_when_data_is_missing() {
     let client = reqwest::Client::new();
 
     let test_cases = vec![
-        ("name=test%20test", "missing the mail"),
-        ("email=test%40domain.com", "missing the name"),
+        ("name=le%20guin", "missing the email"),
+        ("email=ursula_le_guin%40gmail.com", "missing the name"),
         ("", "missing both name and email"),
     ];
 

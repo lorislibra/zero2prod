@@ -19,8 +19,8 @@ jobs:
         ports:
           - 5432:5432
     env:
-      SQLX_VERSION: 0.5.13
-      SQLX_FEATURES: postgres,native-tls
+      SQLX_VERSION: 0.5.5
+      SQLX_FEATURES: postgres
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -99,8 +99,8 @@ jobs:
         ports:
           - 5432:5432
     env:
-      SQLX_VERSION: 0.5.13
-      SQLX_FEATURES: postgres,native-tls
+      SQLX_VERSION: 0.5.5
+      SQLX_FEATURES: postgres
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -157,8 +157,8 @@ jobs:
         ports:
           - 5432:5432
     env:
-      SQLX_VERSION: 0.5.13
-      SQLX_FEATURES: postgres,native-tls
+      SQLX_VERSION: 0.5.5
+      SQLX_FEATURES: postgres
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
