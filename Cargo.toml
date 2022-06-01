@@ -13,9 +13,10 @@ path = "src/main.rs"
 name = "zero2prod"
 
 [dependencies]
-actix-web = "4"
+actix-web = "4.0.1"
 serde = { version = "1.0.137", features = ["derive"] }
-tokio = { version = "1.18", features = ["macros", "rt-multi-thread"] }
+sqlx = { version = "0.5.13", default-features = false, features = ["runtime-actix-rustls", "macros", "postgres", "uuid", "chrono", "migrate"] }
+tokio = { version = "1.18.2", features = ["macros", "rt-multi-thread"] }
 
 [dev-dependencies]
 reqwest = "0.11.10"
